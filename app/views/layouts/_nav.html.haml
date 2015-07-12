@@ -1,0 +1,14 @@
+%nav
+  .nav-wrapper
+    = link_to 'Pipapi', root_url, class: 'brand-logo'
+    %ul{ id: 'nav-mobile', class: 'right hide-on-med-and-down' }
+
+      -# Show these menu-items only if the user is signed-in
+      - if user_signed_in?
+        %li= link_to 'New Pin', new_pin_url
+        %li{ class: 'devider' }
+        %li= link_to 'Account settings', edit_user_registration_url
+        %li= link_to 'Sign out', destroy_user_session_url, method: :delete
+      - else
+        %li= link_to 'Sign up', new_user_registration_url
+        %li= link_to 'Sign in', new_user_session_url

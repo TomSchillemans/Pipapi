@@ -1,0 +1,13 @@
+//= require_tree .
+//= require_self
+
+@import "materialize";
+
+.nav-wrapper {
+  padding-left: 15px;
+}
+
+.card {
+  padding-left: 15px;
+  padding-bottom: 15px;
+}

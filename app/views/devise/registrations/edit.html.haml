@@ -31,11 +31,13 @@
                 = f.label :password_confirmation, 'Confirm password'
                 = f.input_field :password_confirmation, required: false
 
+          .divider
+
           .row
             .s12
               = f.input :current_password, label: false, :wrapper => :vertical_form do
                 %i.material-icons.prefix lock
-                = f.label :password, 'Password'
+                = f.label :password, 'Current Password'
                 = f.input_field :password , required: true, autocomplete: 'off', hint: 'we need your current password to confirm your changes'
 
 
@@ -45,9 +47,7 @@
             Update
 
           %h3.red-text Cancel my account
-          %p
-            Unhappy? #{link_to 'Cancel my account', registration_path(resource_name),
-              data: { confirm: 'Are you sure?' }, method: :delete, :class => 'right btn waves-effect waves-light white-text red'}
+          %p= link_to 'Cancel my account', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete, :class => 'left btn waves-effect waves-light white-text red'
 
           = link_to :back, :class => 'right btn waves-effect waves-light white-text' do
             %i.material-icons.left undo
