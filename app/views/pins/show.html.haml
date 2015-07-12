@@ -1,0 +1,21 @@
+= content_for :title, "#{@pin.title}"
+
+.row
+  .col.s12
+    .card.black-text
+      .card-content
+        %span.card-title.black-text= @pin.title
+        %p= @pin.description
+
+      .card-action
+
+        = link_to 'Home', root_path, class: 'waves-effect waves-light btn white-text'
+
+        = link_to edit_pin_path, class: 'waves-effect waves-light btn white-text' do
+          Edit
+          %i.material-icons.right edit
+
+        = link_to pin_path, method: :delete, data: {confirm: 'Are you sure?'},
+            class: 'waves-effect waves-light btn red white-text' do
+          Delete
+          %i.material-icons.right delete

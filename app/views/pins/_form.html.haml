@@ -1,0 +1,44 @@
+= simple_form_for @pin, html: {multipart: true} do |f|
+  - if @pin.errors.any?
+    #errors
+      %h2
+        = pluralize(@pin.errors.count, 'error')
+        prevented this Pin from being saved
+        %ul
+          - @pin.errors.full_messages.each do |msg|
+            %li= msg
+
+
+  .row
+    .col.s12
+      .card
+        .card-content
+          .row
+            .col.s12
+              = f.input :title, label: false, :wrapper => :vertical_form do
+                %i.material-icons.prefix text_format
+                - if @pin.title.present?
+                  = f.label :title, 'Title', :class => 'active'
+                  = f.input_field :title, :value => @pin.title, :class => 'validate'
+                - else
+                  = f.label :title, 'Title'
+                  = f.input_field :title, :class => 'validate'
+
+          .row
+            .col.s12
+              = f.input :description, label: false, :wrapper => :vertical_form do
+                %i.material-icons.prefix message
+                - if @pin.description.present?
+                  = f.label :description, 'Description', :class => 'active'
+                  = f.input_field :description, :value => @pin.description, :class => 'validate materialize-textarea'
+                - else
+                  = f.label :description, 'Description'
+                  = f.input_field :description, :class => 'validate materialize-textarea'
+        .card-action
+          %button{:class => 'btn waves-effect waves-light', :type => 'submit', :name => 'commit'}
+            %i.material-icons.right send
+            Create Pin
+
+          =link_to root_url, :class => 'right btn waves-effect waves-light white-text red' do
+            %i.material-icons.left undo
+            Cancel

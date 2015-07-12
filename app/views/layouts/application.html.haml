@@ -1,0 +1,17 @@
+!!! 5
+%html
+  %head
+    %title= (yield(:title) + ' :: ' unless yield(:title).blank?).to_s + 'Pipapi - Pinboard'
+    %meta{ :content => 'A pinboard app I created for learning purposes.', :name => 'description' }
+    %meta{ :content => 'tomschillemans@gmail.com', :name => 'author' }
+    %link{ :href => 'https://fonts.googleapis.com/icon?family=Material+Icons', :rel => 'stylesheet' }
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+    .container
+      - flash.each do |name, msg|
+        = content_tag :div, msg, class: 'alert alert-info'
+
+      = yield

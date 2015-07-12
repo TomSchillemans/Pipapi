@@ -1,0 +1,36 @@
+%h2 Sign up
+
+.row
+  .col.s12
+    .card
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        .card-content
+          = f.error_notification
+
+          .row
+            .s12
+              = f.input :email, label: false, :wrapper => :vertical_form do
+                %i.material-icons.prefix person
+                = f.label :email, 'Email'
+                = f.input_field :email, required: true, autofocus: true, class: 'validate'
+
+          .row
+            .s12
+              = f.input :password , label: false, :wrapper => :vertical_form do
+                %i.material-icons.prefix lock
+                = f.label :password, 'Password'
+                = f.input_field :password , required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable)
+
+          .row
+            .s12
+              = f.input :password_confirmation, label: false, :wrapper => :vertical_form do
+                %i.material-icons.prefix lock
+                = f.label :password_confirmation, 'Confirm password'
+                = f.input_field :password_confirmation, required: true
+
+        .card-action
+          %button{:class => 'btn waves-effect waves-light', :type => 'submit', :name => 'commit'}
+            %i.material-icons.right send
+            Sign Up
+
+          = render 'devise/shared/links'

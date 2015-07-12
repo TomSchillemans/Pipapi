@@ -1,0 +1,32 @@
+%h2 Log in
+
+.row
+  .col.s12
+    .card
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .card-content
+
+          .row
+            .s12
+              = f.input :email, label: false, :wrapper => :vertical_form do
+                %i.material-icons.prefix person
+                = f.label :email, 'Email'
+                = f.input_field :email, required: false, autofocus: true, class: 'validate'
+
+          .row
+            .s12
+              = f.input :password , label: false, :wrapper => :vertical_form do
+                %i.material-icons.prefix lock
+                = f.label :password, 'Password'
+                = f.input_field :password , required: false
+
+          .row
+            .s12
+              = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
+        .card-action
+          %button{:class => 'btn waves-effect waves-light', :type => 'submit', :name => 'commit'}
+            %i.material-icons.right send
+            Log in
+
+          = render 'devise/shared/links'
