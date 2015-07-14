@@ -13,6 +13,12 @@
     .col.s12
       .card
         .card-content
+
+          .row
+            .s12
+              -# TODO: Figure out a way to style this accordingly to MaterialCSS
+              = f.input :image
+
           .row
             .col.s12
               = f.input :title, label: false, :wrapper => :vertical_form do
@@ -39,6 +45,6 @@
             %i.material-icons.right send
             Create Pin
 
-          =link_to root_url, :class => 'right btn waves-effect waves-light white-text red' do
+          =link_to :back, :class => 'right btn waves-effect waves-light white-text red' do
             %i.material-icons.left undo
             Cancel
