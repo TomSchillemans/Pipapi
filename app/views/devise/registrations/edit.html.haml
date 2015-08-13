@@ -32,6 +32,9 @@
                 = f.input_field :password_confirmation, required: false
 
           .divider
+          .divider
+          .divider
+          .divider
 
           .row
             .s12
@@ -46,9 +49,10 @@
             %i.material-icons.right send
             Update
 
-          %h3.red-text Cancel my account
-          %p= link_to 'Cancel my account', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete, :class => 'left btn waves-effect waves-light white-text red'
-
           = link_to :back, :class => 'right btn waves-effect waves-light white-text' do
             %i.material-icons.left undo
             Back
+
+          %h3.red-text Cancel my account
+          %p= link_to 'Cancel my account', registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete, :class => 'left btn waves-effect waves-light white-text red'
+

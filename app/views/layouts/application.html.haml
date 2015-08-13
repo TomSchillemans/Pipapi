@@ -16,4 +16,8 @@
     = render 'layouts/nav'
 
     .container
+      - if !user_signed_in?
+        = render 'layouts/signInModal'
+        = render 'layouts/signUpModal'
+
       = yield

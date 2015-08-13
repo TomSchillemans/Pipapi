@@ -1,3 +1,4 @@
+//= require 'masonry/transitions'
 //= require_tree .
 //= require_self
 
@@ -5,9 +6,4 @@
 
 .nav-wrapper {
   padding-left: 15px;
-}
-
-.card {
-  padding-left: 15px;
-  padding-bottom: 15px;
 }

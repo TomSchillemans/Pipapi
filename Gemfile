@@ -28,6 +28,9 @@ gem 'paperclip'
 # gem 'mini_magick'
 # gem 'refile', require: ['refile/rails', 'refile/image_processing']
 
+# Javascript library for fancy animations
+gem 'masonry-rails'
+
 # Use Devise for accounts
 gem 'devise'
 gem 'gravtastic'

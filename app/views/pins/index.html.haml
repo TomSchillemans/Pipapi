@@ -1,10 +1,13 @@
 = content_for(:title, 'Home')
 
-- @pins.each do |pin|
-  .card.large
-    .card-image.waves-effect.waves-block.waves-light
-      = link_to (image_tag pin.image.url(:medium)), pin
-      %span.card-title= pin.title
+#pins.transitions-enabled
+  - @pins.each do |pin|
+    .box
+      .card
+        .card-image.waves-effect.waves-block.waves-light
+          = link_to (image_tag pin.image.url), pin
 
-    .card-content
-      %p= pin.description
+        - if pin.description
+          %span.card-title.black-text= pin.title
+          .card-content
+            %p= pin.description

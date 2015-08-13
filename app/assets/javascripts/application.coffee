@@ -13,11 +13,21 @@
 #= require jquery
 #= require jquery.turbolinks
 #= require jquery_ujs
+#  ALL REQUIRES BELOW THIS LINE
+#
+#= require masonry/jquery.masonry
 #= require materialize-sprockets
 #
+#  NO REQUIRES BELOW
 #= require_tree .
 #= require turbolinks
 
 $(document).on 'ready page:change', ->
-  $('.dropdown-button').dropdown
-    hover: false
+  $('#pins').imagesLoaded ->
+    $('#pins').masonry
+      itemSelector: '.box'
+      isFitWidth: true
+  $('.dropdown-button').dropdown hover: false
+  $('.modal-trigger').leanModal(
+    dismissible: true
+  )

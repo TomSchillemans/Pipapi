@@ -7,15 +7,15 @@
 
 %nav
   .nav-wrapper
-    = link_to 'Pipapi', root_url, class: 'brand-logo'
+    = link_to 'Pipapi', root_url, class: 'brand-logo waves-effect waves-light'
     %ul{ id: 'nav-mobile', class: 'right hide-on-med-and-down' }
 
       -# Show these menu-items only if the user is signed-in
       - if user_signed_in?
         %li
-          %a(class="dropdown-button" href="#!" data-activates="user-dropdown-menu")
+          %a(class="dropdown-button waves-effect waves-light" href="#!" data-activates="user-dropdown-menu")
             = current_user.email
             %i.material-icons.right arrow_drop_down
       - else
-        %li= link_to 'Sign up', new_user_registration_url
-        %li= link_to 'Sign in', new_user_session_url
+        %li= link_to 'Sign up', '#signUpModal', {:class => 'waves-effect waves-light modal-trigger'}
+        %li= link_to 'Sign in', '#signInModal', {:class => 'waves-effect waves-light modal-trigger'}
