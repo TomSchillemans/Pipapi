@@ -10,14 +10,13 @@
     = csrf_meta_tags
 
   %body
-    - flash.each do |name, msg|
-      = content_tag :div, msg, class: 'alert alert-info'
+    = render partial: 'shared/flash_messages', flash: flash
 
-    = render 'layouts/nav'
+    = render 'shared/nav'
 
     .container
       - if !user_signed_in?
-        = render 'layouts/signInModal'
-        = render 'layouts/signUpModal'
+        = render 'shared/sign_in_modal'
+        = render 'shared/sign_up_modal'
 
       = yield

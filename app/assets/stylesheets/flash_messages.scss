@@ -1,0 +1,32 @@
+#flash_wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 999; // Notifications always on top of other elements
+}
+
+.flash {
+  padding: 1.5rem 0;
+  text-align: center;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.flash-success {
+  background: rgba(40, 255, 40, 0.85);
+}
+
+.flash-error {
+  background: rgba(235, 40, 40, 0.85);
+}
+
+.flash-alert {
+  background: rgba(255, 224, 31, 0.85);
+}
+
+.flash-info {
+  background: rgba(135, 216, 211, 0.85);
+}
