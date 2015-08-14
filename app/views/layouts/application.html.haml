@@ -14,7 +14,7 @@
 
     = render 'shared/nav'
 
-    .container
+    %div{:class => ('container' unless current_page?(root_path))}
       - if !user_signed_in?
         = render 'shared/sign_in_modal'
         = render 'shared/sign_up_modal'
